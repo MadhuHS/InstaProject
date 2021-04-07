@@ -9,6 +9,11 @@ public interface Dao
    public void initDB()throws SQLException;
    
    public int insert(User us)throws SQLException;
+   public int update(User us)throws SQLException;
+   public int deleteByEmail(String email)throws SQLException;
+   public int deleteByMob(String mob)throws SQLException;
+   
+   public int getUserByEmail(String Email)throws SQLException;
      
    public void closeDB()throws SQLException;
 }

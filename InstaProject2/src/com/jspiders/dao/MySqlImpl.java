@@ -41,7 +41,7 @@ public class MySqlImpl implements Dao {
 	   pms.setInt(1,0);
 	   pms.setString(2,us.getName());
 	   pms.setString(3,us.getEmail());
-	   pms.setLong(4,us.getMob());
+	   pms.setString(4,us.getMob());
 	   pms.setString(5,us.getPwd());
 	   pms.setString(6,us.getDob());
 	   pms.setString(7,us.getGender());
@@ -50,6 +50,31 @@ public class MySqlImpl implements Dao {
 	   int count = pms.executeUpdate();
 	   
 	   return count;
+	}
+
+	@Override
+	public int update(User us) throws SQLException 
+	{
+		
+		return 0;
+	}
+
+	@Override
+	public int deleteByEmail(String email) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteByMob(String mob) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getUserByEmail(String Email) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
 

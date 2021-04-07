@@ -5,7 +5,7 @@ public class User
 	private int id;
 	private String name;
 	private String email;
-	private Long mob;
+	private String mob;
 	private String pwd;
 	private String dob;
 	private String gender;
@@ -16,7 +16,7 @@ public class User
 		
 	}
 	
-	public User(String name, String email, long mob, String pwd, String dob, String gender, String bio) {
+	public User(String name, String email, String mob, String pwd, String dob, String gender, String bio) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -43,11 +43,11 @@ public class User
 		this.email = email;
 	}
 
-	public Long getMob() {
+	public String getMob() {
 		return mob;
 	}
 
-	public void setMob(Long mob) {
+	public void setMob(String mob) {
 		this.mob = mob;
 	}
 
