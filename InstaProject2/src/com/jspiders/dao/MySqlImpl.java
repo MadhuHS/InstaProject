@@ -20,7 +20,10 @@ public class MySqlImpl implements Dao {
 	private Connection con;
 	
 	private String insertUser = "insert into usersdb.instausers values(?,?,?,?,?,?,?,?)";
-	
+	private String getUser = "select email,pwd from usersdb.instausers where email = ?";
+	private String delteUserbyemail = "delete from usersdb.instausers where email = ?";
+	private String getUserProfile = "select * from usersdb.instausers where email = ?";
+
 	@Override
 	public void initDB()throws SQLException
 	{
@@ -60,9 +63,12 @@ public class MySqlImpl implements Dao {
 	}
 
 	@Override
-	public int deleteByEmail(String email) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteByEmail(String email) throws SQLException 
+	{
+		pms = con.prepareStatement(delteUserbyemail);
+		pms.setNString(1, email);
+		int count  = pms.executeUpdate();
+		return count;
 	}
 
 	@Override
@@ -72,9 +78,42 @@ public class MySqlImpl implements Dao {
 	}
 
 	@Override
-	public int getUserByEmail(String Email) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public User getUserByEmail(String email) throws SQLException 
+	{
+		pms = con.prepareStatement(getUser);
+		pms.setString(1,email);
+		
+	    ResultSet rs = pms.executeQuery();
+	    rs.next();
+	    
+	    String userEmail = rs.getString(1);
+	    String userPwd = rs.getString(2);
+	    
+	    User u1 = new User();
+	    u1.setEmail(userEmail);
+	    u1.setPwd(userPwd);
+	    
+		return u1;
+	}
+
+	@Override
+	public User getUserProfileByEmail(String email) throws SQLException 
+	{
+		pms = con.prepareStatement(getUserProfile);
+		pms.setString(1,email);
+		
+	    ResultSet rs = pms.executeQuery();
+	    rs.next();
+	    
+	    User u1 = new User();
+	    u1.setName(rs.getString(2));
+	    u1.setEmail(rs.getString(3));
+	    u1.setMob(rs.getString(4));
+	    u1.setDob(rs.getString(6));
+	    u1.setGender(rs.getString(7));
+	    u1.setBio(rs.getString(8));
+	    
+		return u1;
 	}
 }
 

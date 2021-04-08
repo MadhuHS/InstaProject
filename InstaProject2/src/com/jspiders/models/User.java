@@ -91,11 +91,8 @@ public class User
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", mob=" + mob + ", pwd=" + pwd + ", dob=" + dob
-				+ ", gender=" + gender + ", bio=" + bio + ", getName()=" + getName() + ", getEmail()=" + getEmail()
-				+ ", getMob()=" + getMob() + ", getPwd()=" + getPwd() + ", getDob()=" + getDob() + ", getGender()="
-				+ getGender() + ", getBio()=" + getBio() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
-				+ ", toString()="  + "]";
+		return "User [name=" + name + ", email=" + email + ", mob=" + mob +", dob=" + dob
+				+ ", gender=" + gender + ", bio=" + bio + "]";
 	}
 	
 	
