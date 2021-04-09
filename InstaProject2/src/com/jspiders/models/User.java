@@ -91,8 +91,8 @@ public class User
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", mob=" + mob +", dob=" + dob
-				+ ", gender=" + gender + ", bio=" + bio + "]";
+		return this.name +" "+ this.email +" "+this.mob+ " "+this.dob+ " "
+				+this.gender + " "+ this.bio;
 	}
 	
 	

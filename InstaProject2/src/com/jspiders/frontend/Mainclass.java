@@ -1,5 +1,6 @@
 package com.jspiders.frontend;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.jspiders.models.User;
@@ -7,7 +8,7 @@ import com.jspiders.services.UserService;
 
 public class Mainclass 
 {
-	public static void main(String[] args) 
+	public static void showMenu()
 	{
 		UserService us = new UserService();
 
@@ -92,7 +93,68 @@ public class Mainclass
 		{
 		  sqle.printStackTrace();
 		}
+	}	
 	}
+	
+	public static void loadDummyData(int id)
+	{
+		UserService us = new UserService();
+		
+		int n= id+100000000;
+		
+		User u1 = new User();
+		
+		for(int i=id; i<=n; i++)
+		{
+		try
+		{
+		  String name = "user";
+		  name = name + i;
+
+		  String email = name+"@gmail.com";
+		  String mob = "98765432";
+		  String pwd = name;
+		  String gender = "male";
+		  String dob = "-1-87";
+		  
+		  
+		  mob = mob + i;
+		  dob = i+dob;
+		  
+		  u1.setName(name);
+		  u1.setEmail(email);
+		  u1.setMob(mob);
+		  u1.setPwd(pwd);
+		  u1.setGender(gender);
+		  u1.setDob(dob);
+		  
+		  us.signup(u1);
+		  
+		  
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		}
+	
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		loadDummyData(1);
+		UserService us = new UserService();
+		try 
+		{
+			us.showAllUsers();
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
 

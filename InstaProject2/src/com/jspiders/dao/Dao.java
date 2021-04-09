@@ -14,8 +14,12 @@ public interface Dao
    public int deleteByMob(String mob)throws SQLException;
    
    public User getUserByEmail(String Email)throws SQLException;
-   
+  
    public User getUserProfileByEmail(String Email)throws SQLException;
+   
+   public User[] getAllUsers() throws SQLException;
+   
+   
      
    public void closeDB()throws SQLException;
 }

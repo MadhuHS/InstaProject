@@ -90,6 +90,22 @@ public class UserService {
 		ms.closeDB();
 	}
 	
+	public void showAllUsers() throws SQLException
+	{
+		ms.initDB();
+		User[] users = ms.getAllUsers();
+		
+		for (int i = 0; i < users.length; i++) 
+		{
+			System.out.println(users[i]);
+		}
+		ms.closeDB();
+		
+		
+	}
+	
+	
+	
 	public void logout() throws SQLException
 	{
 	  ms.closeDB();
